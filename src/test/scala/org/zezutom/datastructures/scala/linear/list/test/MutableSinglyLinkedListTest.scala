@@ -1,8 +1,8 @@
-package org.zezutom.datastructures.linear.list.test
+package org.zezutom.datastructures.scala.linear.list.test
 
 import org.junit.Assert._
 import org.junit._
-import org.zezutom.datastructures.linear.list.MutableSinglyLinkedList
+import org.zezutom.datastructures.scala.linear.list.MutableSinglyLinkedList
 
 /**
  * Created by tom on 21/09/2014.
