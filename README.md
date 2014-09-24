@@ -2,7 +2,7 @@
 
 Examples of popular data structures implemented in several programming languages, fully tested.
 
-Runs on gradle, please use `gradle build` or `gradle test`
+To build the project use `gradle build`
 
 ## 1 Linear Data Structures
 ### 1.1 Lists
