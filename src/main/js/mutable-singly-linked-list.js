@@ -19,13 +19,11 @@ Iterator.prototype = {
     hasNext: function() { return this.index <= this.items.length; }
 };
 
-function NodeIterator() { this.walker = this.head; };
+function NodeIterator(walker) { this.walker = walker; };
 
-NodeIterator.prototype = new Iterator();
+NodeIterator.prototype.hasNext = function() { return this.walker != null; };
 
-NodeIterator.prototype.next = function() { return this.walker != null; };
-
-NodeIterator.prototype.hasNext = function() {
+NodeIterator.prototype.next = function() {
     var data = this.walker.data;
     this.walker = this.walker.next;
     return data;
@@ -36,8 +34,6 @@ MutableSinglyLinkedList.prototype = {
     length: function() { return this.count || 0; },
 
     isEmpty: function() { return this.length() <= 0; },
-
-    head: function() { return this.head; },
 
     /**
      * Appends an node at the end of the list
@@ -100,7 +96,7 @@ MutableSinglyLinkedList.prototype = {
      */
     insertAll: function(n, elems) {
         // Note that it is fine to insert at the position of the very last node
-        if (n < 0 || n > count) outOfBounds(n);
+        if (n < 0 || n > this.count) this.outOfBounds(n);
         // What if we are inserting at the beginning of the list?
         if (n == 0) {
             if (elems.length > 0) {
@@ -123,7 +119,7 @@ MutableSinglyLinkedList.prototype = {
             var walker = this.walk(n - 1, this.head);
             // Insert all of the provided nodes
             elems.forEach(function(elem) {
-                walker.next = new Node<T>(e, walker.next);
+                walker.next = new Node(elem, walker.next);
                 walker = walker.next;
                 this.increment();
             }, this);
@@ -135,10 +131,10 @@ MutableSinglyLinkedList.prototype = {
     /**
      * Provides an efficient way of iterating over a list. Don't use apply(n), since that one has an internal loop.
      * Whereas an iterator maintains a pointer to the current position in the list.
-     * @return a list iterator
+     * @return NodeIterator list iterator
      */
     iterator: function() {
-        return new NodeIterator();
+        return new NodeIterator(this.head);
     },
 
     /**
@@ -147,7 +143,7 @@ MutableSinglyLinkedList.prototype = {
      * @return  a value of the removed node
      */
     remove: function(n) {
-        if (n < 0 || n >= this.count) outOfBounds(n);
+        if (n < 0 || n >= this.count) this.outOfBounds(n);
         if (n == 0) {
             // Remove the head of the list
             const data = this.head.data;
@@ -179,7 +175,7 @@ MutableSinglyLinkedList.prototype = {
      * @param data a new value the found node is to be updated with
      */
     update: function(n, data) {
-        if (n < 0 || n >= count) outOfBounds(n);
+        if (n < 0 || n >= this.count) this.outOfBounds(n);
         var walker = this.walk(n, this.head);
         walker.data = data;
     },
