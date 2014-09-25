@@ -32,6 +32,13 @@ NodeIterator.prototype.hasNext = function() {
 };
 
 MutableSinglyLinkedList.prototype = {
+
+    length: function() { return this.count || 0; },
+
+    isEmpty: function() { return this.length() <= 0; },
+
+    head: function() { return this.head; },
+
     /**
      * Appends an node at the end of the list
      * @param data
@@ -73,7 +80,7 @@ MutableSinglyLinkedList.prototype = {
      * @return the found value
      */
     apply: function(n) {
-        if (n < 0 || n >= count) outOfBounds(n);
+        if (n < 0 || n >= this.count) outOfBounds(n);
         return this.walk(n, this.head).data;
     },
 
@@ -178,6 +185,8 @@ MutableSinglyLinkedList.prototype = {
     },
 
     increment: function() { this.count++; },
+
+    decrement: function() { this.count--; },
 
     walk: function (n, node) {
         for (var i = 0; i < n; i++) node = node.next;
