@@ -16,7 +16,7 @@ function Iterator(items) {
 
 Iterator.prototype = {
     next: function() { return this.items[this.index++]; },
-    hasNext: function() { return this.index <= this.items.length; }
+    hasNext: function() { return this.index < this.items.length; }
 };
 
 function NodeIterator(walker) { this.walker = walker; };
@@ -146,13 +146,13 @@ MutableSinglyLinkedList.prototype = {
         if (n < 0 || n >= this.count) this.outOfBounds(n);
         if (n == 0) {
             // Remove the head of the list
-            const data = this.head.data;
+            const headData = this.head.data;
             this.head = this.head.next;
             // What if there was a single node on the list only?
             // Just make sure tail is cleaned up too
             if (this.head == null) this.tail = null;
             this.decrement();
-            return data;
+            return headData;
         } else {
             // Find the node preceding the one we want to remove
             var walker = this.walk(n - 1, this.head);
@@ -191,3 +191,5 @@ MutableSinglyLinkedList.prototype = {
 
     outOfBounds: function(n) { throw "Requested " + n + " of " + this.count; }
 };
+
+module.exports = MutableSinglyLinkedList;

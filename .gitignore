@@ -3,3 +3,8 @@
 build
 *.iml
 *.log
+.DS_Store
+node_modules
+src/.DS_Store
+src/main/.DS_Store
+src/test/.DS_Store

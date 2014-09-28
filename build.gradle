@@ -10,7 +10,7 @@
 // Apply the scala plugin to add support for Scala
 apply plugin: 'scala'
 apply plugin: 'java'
-apply plugin: 'buster'
+apply plugin: 'gulp'
 
 // In this section you declare where to find the dependencies of your project
 repositories {
@@ -30,11 +30,11 @@ dependencies {
 }
 
 buildscript {
-    repositories { jcenter() }  // or mavenRepo urls: 'http://dl.bintray.com/rundis/maven'
+    repositories { jcenter() }
     dependencies {
-        classpath  'org.gradle.buster:gradle-buster-plugin:0.2.4.1'
+        classpath 'be.filipblondeel.gradle:gradle-gulp-plugin:0.1'
     }
 }
 
-build.dependsOn busterTest // Optional, hook up the relevant buster tasks into your build task graph
+build.dependsOn gulp_build // Optional, hook up the relevant buster tasks into your build task graph
 
