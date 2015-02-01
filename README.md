@@ -10,3 +10,6 @@ To build the project use `gradle build`
 | [Java](src/main/java/org/zezutom/datastructures/java/linear/list/MutableSinglyLinkedList.java) | [Scala](./src/main/scala/org/zezutom/datastructures/scala/linear/list/MutableSinglyLinkedList.scala) |
 [JavaScript](https://github.com/zezutom/datastructures/blob/master/src/main/js/mutable-singly-linked-list.js) |
 
+#### 1.1.2 Mutable Doubly Linked List
+| Java | [Scala](./src/main/scala/org/zezutom/datastructures/scala/linear/list/MutableDoublyLinkedList.scala) |
+JavaScript |
