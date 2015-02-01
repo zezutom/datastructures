@@ -4,8 +4,6 @@ import org.junit.Assert._
 import org.junit._
 import org.zezutom.algorithms.scala.sort.InversionCounter
 
-import scala.io.Source
-
 class InversionCounterTest {
 
   val counter:InversionCounter = new InversionCounter
