@@ -36,6 +36,9 @@ class InversionCounter {
     nums.toArray
   }
 
+  /*
+   * Merge and count split inversions. Runs in time O(n)
+   */
   def mergeAndCount(left: Array[Int], right: Array[Int], product: Array[Int]): Long = {
     var (i, j, k, count) = (0, 0, 0, 0)
 
@@ -56,12 +59,12 @@ class InversionCounter {
 
     // Finish the merge
     if (i == left.length) {
-      for (m <- j to right.length - 1) {
+      for (m <- j until right.length) {
         product(k) = right(m)
         k += 1
       }
     } else {
-      for (m <- i to left.length - 1) {
+      for (m <- i until left.length) {
         product(k) = left(m)
         k += 1
       }
@@ -71,7 +74,7 @@ class InversionCounter {
     count
   }
 
-  def getInvCount(nums: Array[Int]): Long = {
+  def sortAndCount(nums: Array[Int]): Long = {
     // If there is at most a single number there is nothing to do
     if (nums.length <= 1) return 0L
 
@@ -81,14 +84,14 @@ class InversionCounter {
     val right = new Array[Int](nums.length - mid)
 
     // Populate the two sub-arrays
-    for (i <- 0 to mid - 1)
+    for (i <- 0 until left.length)
       left(i) = nums(i)
-    for (i <- 0 to nums.length - mid - 1)
+    for (i <- 0 until right.length)
       right(i) = nums(mid + i)
 
     // Recursively count inversions in both sub-arrays
-    val countLeft = getInvCount(left)
-    val countRight = getInvCount(right)
+    val countLeft = sortAndCount(left)
+    val countRight = sortAndCount(right)
 
     // Merge the two sub-arrays together and count inversions
     // caused by the merge
@@ -97,7 +100,7 @@ class InversionCounter {
 
     // Now sort the original array to secure
     // correct results of the recursive calls
-    for (i <- 0 to nums.length - 1)
+    for (i <- 0 until nums.length)
       nums(i) = product(i)
 
     // Return the sum of all collected counts

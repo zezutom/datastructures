@@ -9,11 +9,11 @@ class FizzBuzzTest {
 
   val fizzBuzz:FizzBuzz = new FizzBuzz
 
-  @Test def small_scale() {
+  @Test def small_scale {
     assertEquals("1 2 Fizz 4 Buzz Fizz 7 8 Fizz Buzz 11 Fizz 13 14 FizzBuzz", fizzBuzz.fizzBuzz(15))
   }
 
-  @Test def large_scale() {
+  @Test def large_scale {
     val fizzyBuzzy = fizzBuzz.fizzBuzz(100)
     assertTrue(fizzyBuzzy.contains("2 Fizz"))
     assertTrue(fizzyBuzzy.contains("19 Buzz Fizz 22"))
