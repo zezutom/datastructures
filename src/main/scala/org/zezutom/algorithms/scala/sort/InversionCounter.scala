@@ -76,7 +76,7 @@ class InversionCounter {
 
   def sortAndCount(nums: Array[Int]): Long = {
     // If there is at most a single number there is nothing to do
-    if (nums.length <= 1) return 0L
+    if (nums.length < 2) return 0L
 
     // Split the input array into halves
     val mid = nums.length / 2

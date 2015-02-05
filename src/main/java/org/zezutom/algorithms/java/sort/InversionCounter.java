@@ -4,8 +4,6 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 /**
@@ -67,9 +65,9 @@ public class InversionCounter {
 
     }
 
-    public long getInvCount(int... nums) {
+    public long sortAndCount(int... nums) {
         // If there is at most a single number there is nothing to do
-        if (nums == null || nums.length <= 1) return 0;
+        if (nums == null || nums.length < 2) return 0;
 
         // Split the input array into halves
         int mid = nums.length / 2;
@@ -83,8 +81,8 @@ public class InversionCounter {
             right[i] = nums[mid + i];
 
         // Recursively count inversions in both sub-arrays
-        long countLeft = getInvCount(left);
-        long countRight = getInvCount(right);
+        long countLeft = sortAndCount(left);
+        long countRight = sortAndCount(right);
 
         // Merge the two sub-arrays together and count inversions
         // caused by the merge
