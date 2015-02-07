@@ -5,8 +5,12 @@ Examples of popular data structures implemented in several programming languages
 To build the project use `gradle build`
 
 ##Algorithms
-###Inversion Count
+###Merge Sort and Inversion Count
 | [Java](src/main/java/org/zezutom/algorithms/java/sort/InversionCounter.java) | [Scala](src/main/scala/org/zezutom/algorithms/scala/sort/InversionCounter.scala) | [Javascript](src/main/js/algorithms/inversion-counter.js) |
+
+###Quick Sort and Comparison Count
+| Java | [Scala](src/main/scala/org/zezutom/algorithms/scala/sort/QuickSort.scala) | Javascript |
+
 
 ##Linear Data Structures
 ###Lists
