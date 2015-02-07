@@ -6,7 +6,7 @@ To build the project use `gradle build`
 
 ##Algorithms
 ###Inversion Count
-| [Java](src/main/java/org/zezutom/algorithms/java/sort/InversionCounter.java) | [Scala](src/main/scala/org/zezutom/algorithms/scala/sort/InversionCounter.scala) | Javascript |
+| [Java](src/main/java/org/zezutom/algorithms/java/sort/InversionCounter.java) | [Scala](src/main/scala/org/zezutom/algorithms/scala/sort/InversionCounter.scala) | [Javascript](src/main/js/algorithms/inversion-counter.js) |
 
 ##Linear Data Structures
 ###Lists
