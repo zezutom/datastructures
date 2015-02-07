@@ -1,6 +1,6 @@
 # Data Structures
 
-Examples of popular data structures implemented in several programming languages, fully tested.
+Examples of algorithms and popular data structures implemented in several programming languages, fully tested.
 
 To build the project use `gradle build`
 
