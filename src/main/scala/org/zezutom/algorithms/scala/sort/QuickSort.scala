@@ -97,7 +97,7 @@ class QuickSort {
 
   /**
    * Swaps the provided elements within the given array.
-   * 
+   *
    * @param nums    the input array of integers
    * @param from    to be replaced by 'to'
    * @param to      to be replaced by 'from'

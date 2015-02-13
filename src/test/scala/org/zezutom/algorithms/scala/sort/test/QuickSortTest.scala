@@ -3,67 +3,37 @@ package org.zezutom.algorithms.scala.sort.test
 import org.junit.Assert._
 import org.junit._
 import org.zezutom.algorithms.scala.sort.QuickSort
-import org.zezutom.util.scala.StdInHandler
+import org.zezutom.scala.util.TestUtil
 
 class QuickSortTest {
 
+  val filename: String = "QuickSort.txt"
+
   val quickSort: QuickSort = new QuickSort
 
-  val stdInHandler:StdInHandler = new StdInHandler
+  val testUtil:TestUtil = new TestUtil
 
   @Test def comparison_count_pivot_as_first_small_scale {
-    val nums = Array(2, 4, 1, 3, 5)
-
-    // total of comparisons
-    assertEquals(6, quickSort.sortUsingFirst(nums))
-
-    // array is sorted
-    assertEquals("1 2 3 4 5", nums.mkString(" ").trim())
+    testUtil.assertSort(6, quickSort.sortUsingFirst)
   }
 
   @Test def comparison_count_pivot_as_first_large_scale {
-    val path = getClass.getClassLoader.getResource("QuickSort.txt").getPath
-    val nums = stdInHandler.readFromFile(path)
-
-    // The count of inversions is too large to reason about. Take it for a fact.
-    assertEquals(162085, quickSort.sortUsingFirst(nums))
+    assertEquals(162085, quickSort.sortUsingFirst(testUtil.readFromFile(filename)))
   }
 
   @Test def comparison_count_pivot_as_last_small_scale {
-    val nums = Array(2, 4, 1, 3, 5)
-
-    // total of comparisons
-    assertEquals(8, quickSort.sortUsingLast(nums))
-
-    // array is sorted
-    assertEquals("1 2 3 4 5", nums.mkString(" ").trim())
+    testUtil.assertSort(8, quickSort.sortUsingLast)
   }
 
   @Test def comparison_count_pivot_as_last_large_scale {
-    val path = getClass.getClassLoader.getResource("QuickSort.txt").getPath
-    val nums = stdInHandler.readFromFile(path)
-
-    // The count of inversions is too large to reason about. Take it for a fact.
-    assertEquals(164123, quickSort.sortUsingLast(nums))
+    assertEquals(164123, quickSort.sortUsingLast(testUtil.readFromFile(filename)))
   }
 
   @Test def comparison_count_pivot_as_median_small_scale {
-    val nums = Array(2, 4, 1, 3, 5)
-
-    quickSort.sortUsingMedian(nums)
-    // total of comparisons
-    assertEquals(10, quickSort.sortUsingFirst(nums))
-
-    // array is sorted
-    assertEquals("1 2 3 4 5", nums.mkString(" ").trim())
+    testUtil.assertSort(6, quickSort.sortUsingMedian)
   }
 
   @Test def comparison_count_pivot_as_median_large_scale {
-    val path = getClass.getClassLoader.getResource("QuickSort.txt").getPath
-    val nums = stdInHandler.readFromFile(path)
-
-    // The count of inversions is too large to reason about. Take it for a fact.
-    assertEquals(138382, quickSort.sortUsingMedian(nums))
+    assertEquals(138382, quickSort.sortUsingMedian(testUtil.readFromFile(filename)))
   }
-
 }
