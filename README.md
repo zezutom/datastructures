@@ -1,4 +1,5 @@
 # Data Structures
+[![Build Status](https://travis-ci.org/zezutom/datastructures.svg?branch=master)](https://travis-ci.org/zezutom/datastructures)
 
 Examples of algorithms and popular data structures implemented in several programming languages, fully tested.
 
