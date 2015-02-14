@@ -3,4 +3,4 @@ before_install:
 - sudo apt-get update
 - sudo apt-get install scala 
 
-script: "gradle build"
+script: "gradle installGulp build"
