@@ -9,7 +9,7 @@ To build the project use `gradle build`
 | [Java](src/main/java/org/zezutom/algorithms/java/sort/InversionCounter.java) | [Scala](src/main/scala/org/zezutom/algorithms/scala/sort/InversionCounter.scala) | [Javascript](src/main/js/algorithms/inversion-counter.js) |
 
 ###Quick Sort and Comparison Count
-| [Java](src/main/java/org/zezutom/algorithms/java/sort/QuickSort.java) | [Scala](src/main/scala/org/zezutom/algorithms/scala/sort/QuickSort.scala) | Javascript |
+| [Java](src/main/java/org/zezutom/algorithms/java/sort/QuickSort.java) | [Scala](src/main/scala/org/zezutom/algorithms/scala/sort/QuickSort.scala) | [Javascript](src/main/js/algorithms/quicksort.js) |
 
 
 ##Linear Data Structures
