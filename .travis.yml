@@ -1,6 +1,6 @@
 language: java
 before_install:
-- npm install gulp gulp-mocha gulp-util
+- npm install gulp gulp-mocha gulp-util chai
 - sudo apt-get update
 - sudo apt-get install scala 
 
