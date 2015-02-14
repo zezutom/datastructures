@@ -1,4 +1,5 @@
-const integerArray = [
+module.exports = function() { 
+  this.data = [
 54044,
 14108,
 79294,
@@ -99998,15 +99999,4 @@ const integerArray = [
 16774,
 74018,
 71187,
-91901];
-
-
-function IntArrContainer() {}
-
-IntArrContainer.prototype = {
-    data: function() {
-        return integerArray;
-    }
-};
-
-module.exports = IntArrContainer;
+91901];}

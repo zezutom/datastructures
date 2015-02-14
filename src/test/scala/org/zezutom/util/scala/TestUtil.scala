@@ -9,7 +9,7 @@ class TestUtil {
   def assertSort(expectedCount:Int, sort:(Array[Int]) => Long): Unit = {
     val nums = Array(2, 4, 1, 3, 5)
 
-    // total of comparisons
+    // total of inversions or comparisons
     assertEquals(expectedCount, sort(nums))
 
     // array is sorted

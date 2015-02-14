@@ -69,13 +69,6 @@ public class QuickSort {
     }
 
     interface ShuffleStrategy {
-        /**
-         *
-         *
-         * @param nums    the input array
-         * @param left    range start
-         * @param right   range end
-         */
         void shuffle(int[] nums, int left, int right);
     }
 
