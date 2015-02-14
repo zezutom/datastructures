@@ -4,7 +4,7 @@ import scala.collection.mutable.ArrayBuffer
 import scala.io.Source
 
 /**
- * Allows to handle stdin and read data from a file
+ * Handles console / file input
  */
 class StdInHandler {
 
@@ -29,6 +29,4 @@ class StdInHandler {
     }
     nums.toArray
   }
-
-
 }

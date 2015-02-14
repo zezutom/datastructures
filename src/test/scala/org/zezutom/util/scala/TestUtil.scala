@@ -1,17 +1,16 @@
-package org.zezutom.scala.util
+package org.zezutom.util.scala
 
 import org.junit.Assert._
-import org.zezutom.util.scala.StdInHandler
 
 class TestUtil {
 
   val stdInHandler:StdInHandler = new StdInHandler
 
-  def assertSort(expectedComparisonCount:Int, sort:(Array[Int]) => Long): Unit = {
+  def assertSort(expectedCount:Int, sort:(Array[Int]) => Long): Unit = {
     val nums = Array(2, 4, 1, 3, 5)
 
     // total of comparisons
-    assertEquals(expectedComparisonCount, sort(nums))
+    assertEquals(expectedCount, sort(nums))
 
     // array is sorted
     assertArray(nums, 1, 2, 3, 4, 5)

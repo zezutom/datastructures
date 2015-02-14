@@ -3,7 +3,7 @@ package org.zezutom.algorithms.scala.sort.test
 import org.junit.Assert._
 import org.junit._
 import org.zezutom.algorithms.scala.sort.QuickSort
-import org.zezutom.scala.util.TestUtil
+import org.zezutom.util.scala.TestUtil
 
 class QuickSortTest {
 
