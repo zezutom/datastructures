@@ -4,7 +4,7 @@ import org.junit.Assert._
 
 class TestUtil {
 
-  val stdInHandler:StdInHandler = new StdInHandler
+  val stdInHandler:InputHandler = new InputHandler
 
   def assertSort(expectedCount:Int, sort:(Array[Int]) => Long): Unit = {
     val nums = Array(2, 4, 1, 3, 5)
@@ -21,7 +21,10 @@ class TestUtil {
   }
 
   def readFromFile(filename:String): Array[Int] = {
-    val path = getClass.getClassLoader.getResource(filename).getPath
-    stdInHandler.readFromFile(path)
+    stdInHandler.readNumbers(getAbsolutePath(filename))
+  }
+
+  def getAbsolutePath(filename: String): String = {
+    getClass.getClassLoader.getResource(filename).getPath
   }
 }
