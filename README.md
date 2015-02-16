@@ -12,6 +12,8 @@ To build the project use `gradle build`
 ###Quick Sort and Comparison Count
 | [Java](src/main/java/org/zezutom/algorithms/java/sort/QuickSort.java) | [Scala](src/main/scala/org/zezutom/algorithms/scala/sort/QuickSort.scala) | [Javascript](src/main/js/algorithms/quicksort.js) |
 
+###Karger's Min Cut Algorithm
+| Java | [Scala](src/main/scala/org/zezutom/algorithms/scala/graph/MinCutCalculator.scala) | Javascript |
 
 ##Linear Data Structures
 ###Lists
