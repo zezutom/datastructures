@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * Handles console / file input
  */
-public class StdInHandler {
+public class InputHandler {
 
     public int[] readFromFile(String path) {
         List<Integer> numList = new ArrayList<>();

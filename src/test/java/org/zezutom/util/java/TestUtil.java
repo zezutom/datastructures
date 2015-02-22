@@ -6,7 +6,7 @@ import static org.junit.Assert.assertEquals;
 
 public class TestUtil {
 
-    private final StdInHandler stdInHandler = new StdInHandler();
+    private final InputHandler stdInHandler = new InputHandler();
 
     public static interface Sorter {
         int sort(int... nums);
@@ -28,7 +28,10 @@ public class TestUtil {
 
 
     public int[] readFromFile(String filename) {
-        final String path = getClass().getClassLoader().getResource(filename).getPath();
-        return stdInHandler.readFromFile(path);
+        return stdInHandler.readFromFile(getAbsolutePath(filename));
+    }
+
+    public String getAbsolutePath(String filename) {
+        return getClass().getClassLoader().getResource(filename).getPath();
     }
 }
