@@ -1,7 +1,5 @@
 package org.zezutom.algorithms.java.graph;
 
-import com.sun.tools.javac.util.Pair;
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -27,6 +25,15 @@ public class MinCutCalculator {
         this.verbose = verbose;
     }
 
+    static class Pair<A, B> {
+        A fst;
+        B snd;
+
+        Pair(A fst, B snd) {
+            this.fst = fst;
+            this.snd = snd;
+        }
+    }
     static class Graph {
 
         List<Set<Integer>> vertices = new ArrayList<>();
