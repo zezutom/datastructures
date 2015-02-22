@@ -1,5 +1,5 @@
 var assert = require("chai").assert;
-var MutableSinglyLinkedList = require("../../main/js/datastructures/mutable-singly-linked-list.js");
+var MutableSinglyLinkedList = require("../../main/js/datastructures/mutable-singly-linked-list");
 
 describe('MutableSinglyLinkedList', function() {
     var list;

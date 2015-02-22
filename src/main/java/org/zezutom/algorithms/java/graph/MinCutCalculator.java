@@ -25,20 +25,28 @@ public class MinCutCalculator {
         this.verbose = verbose;
     }
 
-    static class Pair<A, B> {
-        A fst;
-        B snd;
+    /**
+     * An edge connects two vertices.
+     *
+     */
+    static class Edge {
+        int from;
+        int to;
 
-        Pair(A fst, B snd) {
-            this.fst = fst;
-            this.snd = snd;
+        Edge(int from, int to) {
+            this.from = from;
+            this.to = to;
         }
     }
+
+    /**
+     * Representation of an undirected graph
+     */
     static class Graph {
 
         List<Set<Integer>> vertices = new ArrayList<>();
 
-        List<Pair<Integer, Integer>> edges = new ArrayList<>();
+        List<Edge> edges = new ArrayList<>();
 
         Graph() {}
 
@@ -49,8 +57,8 @@ public class MinCutCalculator {
                 this.vertices.add(newVertex);
             }
 
-            for (Pair<Integer, Integer> edge : graph.edges) {
-                Pair<Integer, Integer> newEdge = new Pair<>(edge.fst, edge.snd);
+            for (Edge edge : graph.edges) {
+                Edge newEdge = new Edge(edge.from, edge.to);
                 this.edges.add(newEdge);
             }
         }
@@ -66,7 +74,7 @@ public class MinCutCalculator {
         }
 
         void addEdge(int from, int to) {
-            edges.add(new Pair<>(from, to));
+            edges.add(new Edge(from, to));
         }
     }
 
@@ -113,10 +121,10 @@ public class MinCutCalculator {
     private int countEdges(Graph graph) {
         int count = 0;
         final Set<Integer> head = graph.vertices.get(0);
-        for (Pair<Integer, Integer> edge : graph.edges) {
+        for (Edge edge : graph.edges) {
             // Only count the edges between two standalone vertices (X -- n edges -- Y)
             // Vertices which have already been contracted do not count!
-            if (head.contains(edge.fst) & !(head.contains(edge.snd))) count++;
+            if (head.contains(edge.from) & !(head.contains(edge.to))) count++;
         }
         return count;
     }
@@ -135,11 +143,11 @@ public class MinCutCalculator {
         // Preserve the original graph by creating a new one
         Graph newGraph = new Graph(graph);
         List<Set<Integer>> vertices = newGraph.vertices;
-        List<Pair<Integer, Integer>> edges = newGraph.edges;
+        List<Edge> edges = newGraph.edges;
 
         // Take a random edge (v1, v2)
-        Pair<Integer, Integer> edge = edges.get(rand.nextInt(edges.size()));
-        int v1_index = indexOf(newGraph, edge.fst), v2_index = indexOf(newGraph, edge.snd);
+        Edge edge = edges.get(rand.nextInt(edges.size()));
+        int v1_index = indexOf(newGraph, edge.from), v2_index = indexOf(newGraph, edge.to);
 
         // Contract v2 into v1
         Set<Integer> contractedVertex = vertices.get(v1_index);
@@ -149,10 +157,10 @@ public class MinCutCalculator {
         vertices.remove(v2_index);
 
         // Filter out any loops
-        Iterator<Pair<Integer, Integer>> edgesIterator = edges.iterator();
+        Iterator<Edge> edgesIterator = edges.iterator();
         while (edgesIterator.hasNext()) {
-            Pair<Integer, Integer> e = edgesIterator.next();
-            if (contractedVertex.contains(e.fst) && contractedVertex.contains(e.snd))
+            Edge e = edgesIterator.next();
+            if (contractedVertex.contains(e.from) && contractedVertex.contains(e.to))
                 edgesIterator.remove();
         }
 

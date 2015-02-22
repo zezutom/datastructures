@@ -1,7 +1,7 @@
 var assert = require("chai").assert,
-    QuickSort = require("../../main/js/algorithms/quicksort"),
+    QuickSort = require("../../../main/js/algorithms/sort/quicksort"),
     TestUtil = require("./test-util"),
-    DataSet = require("./data/quicksort-dataset");
+    DataSet = require("../data/quicksort-dataset");
 
 describe('QuickSort', function() {
     const quickSort = new QuickSort(),

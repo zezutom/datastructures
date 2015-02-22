@@ -1,6 +1,6 @@
 var assert = require("chai").assert,
-    InversionCounter = require("../../main/js/algorithms/inversion-counter"),
-    DataSet = require("./data/inversion-counter-dataset"),
+    InversionCounter = require("../../../main/js/algorithms/sort/inversion-counter"),
+    DataSet = require("../data/inversion-counter-dataset"),
     TestUtil = require("./test-util");
 
 describe('InversionCounter', function() {
