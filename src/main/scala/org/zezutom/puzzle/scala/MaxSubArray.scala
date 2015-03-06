@@ -71,7 +71,7 @@ class MaxSubArray {
    *
    * That allows to skip nested calculations and reduces the number of loops to a single one.
    *
-   *  1 loops, up to n-times iterations
+   *  a single loop, up to n-times iterations
    *  running time of O(n)
    *
    * @param n   an input array of integers
