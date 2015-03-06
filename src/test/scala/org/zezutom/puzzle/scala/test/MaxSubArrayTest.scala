@@ -17,6 +17,10 @@ class MaxSubArrayTest {
     test(maxSubArray.faster)
   }
 
+  @Test def fastest(): Unit = {
+    test(maxSubArray.fastest)
+  }
+
   private def test(f: Array[Int] => (Int, Int, Int)) = {
     val (start, end, max) = f(Array(-2, -4, 3, -1, 5, 6, -7, -2, 4, -3, 2))
     assertTrue(start == 2)

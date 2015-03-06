@@ -61,5 +61,33 @@ class MaxSubArray {
       }
     }
     (start, end, max)
-  }  
+  }
+
+  /**
+   * The fastest version of the max sub-array algorithm.
+   *
+   * The improvement takes the idea of partials sums to the next level. Instead
+   * of computing prefix sums, we compute maximum suffix sums.
+   *
+   * That allows to skip nested calculations and reduces the number of loops to a single one.
+   *
+   *  1 loops, up to n-times iterations
+   *  running time of O(n)
+   *
+   * @param n   an input array of integers
+   * @return    the found sub-array identified by its boundaries (start, end) and the max value
+   */
+  def fastest(n: Array[Int]): (Int, Int, Int) = {
+    var (start, end, sums) = (0, 0, Vector[Int](0))
+    for (i <- 1 until n.length)
+      sums = sums :+ Math.max(0, sums(i - 1) + n(i))
+    var (max, k) = (0, 0)
+    for (j <- 1 until n.length) {
+      if (sums(j) > max) {
+        max = sums(j); start = k; end = j;
+        k += 1
+      }
+    }
+    (start, end, max)
+  }
 }
